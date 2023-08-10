@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "ubuntu-regular";
+  src: url("./fonts/Ubuntu-Regular.ttf");
+}
+@font-face {
+  font-family: "ubuntu-medium";
+  src: url("./fonts/Ubuntu-Medium.ttf");
+}
+@font-face {
+  font-family: "ubuntu-bold";
+  src: url("./fonts/Ubuntu-Bold.ttf");
+}
+body {
+  font-family: "ubuntu-regular";
+  background: hsl(217, 100%, 97%);
+}
+
+.bg-image {
+  position: absolute;
+  z-index: -1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main nav {
+  margin: 2rem 0;
+  display: flex;
+}
+main nav .text {
+  display: none;
+}
+main nav .number {
+  padding: 0.5rem 0.8rem;
+  margin: 0 0.5rem;
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 2rem;
+  color: hsl(0, 0%, 100%);
+}
+main nav .number.active {
+  background: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+  border: none;
+}
+main section {
+  background: hsl(0, 0%, 100%);
+  border-radius: 0.5rem;
+  margin: 0 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 1rem 2rem -20px hsl(231, 11%, 63%);
+}
+main section .header h1 {
+  font-size: 1.8em;
+  color: hsl(213, 96%, 18%);
+}
+main section .header p {
+  font-size: 1.2em;
+  margin: 1rem 0;
+  color: hsl(231, 11%, 63%);
+}
+main section .container {
+  display: grid;
+  row-gap: 0.3rem;
+  margin: 1rem 0;
+}
+main section .container label {
+  color: hsl(213, 96%, 18%);
+  font-size: 0.8em;
+  font-weight: 500;
+}
+main section .container input {
+  padding: 0.5rem 1rem;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 2px;
+}
+main .second-step {
+  display: flex;
+  flex-direction: column;
+}
+main .second-step .header h1 {
+  font-size: 1.5em;
+}
+main .second-step .header p {
+  font-size: 1em;
+}
+main .second-step .plan-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr 0.5fr;
+  align-items: center;
+  text-align: left;
+  padding: 1.2rem 1rem;
+  margin: 0.5rem 0;
+  background: transparent;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 8px;
+}
+main .second-step .plan-wrapper h2 {
+  color: hsl(213, 96%, 18%);
+  font-size: 1.3em;
+}
+main .second-step .plan-wrapper p {
+  color: hsl(231, 11%, 63%);
+}
+main .second-step .plan-duration {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: hsl(217, 100%, 97%);
+  padding: 1rem 0;
+  color: hsl(213, 96%, 18%);
+  text-transform: capitalize;
+}
+main .second-step .plan-duration .toggle-switch {
+  display: inline-flex;
+  align-items: center;
+}
+main .second-step .plan-duration .toggle-switch input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+main .second-step .plan-duration .toggle-switch label {
+  cursor: pointer;
+  width: 2.3rem;
+  height: 1.3rem;
+  background: hsl(213, 96%, 18%);
+  display: block;
+  border-radius: 1rem;
+  position: relative;
+}
+main .second-step .plan-duration .toggle-switch label:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 1px;
+  width: 1rem;
+  height: 1rem;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.4s;
+}
+main .second-step .plan-duration .toggle-switch input:checked + label {
+  background: hsl(213, 96%, 18%);
+}
+main .second-step .plan-duration .toggle-switch input:checked + label:after {
+  left: calc(100% - 1px);
+  transform: translateX(-100%);
+}
+main .second-step .plan-duration .toggle-switch label:active:after {
+  width: 1rem;
+}
+main .second-step .third-step-wrapper {
+  display: grid;
+  grid-template-columns: 0.3fr 3fr 0.3fr;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+main .second-step .third-step-wrapper input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  margin: 0;
+  font: inherit;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 2px;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+main .second-step .third-step-wrapper input[type=checkbox]::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  transform: scale(0);
+  transition: 0.12s transform ease-in-out;
+  box-shadow: inset 1em 1em hsl(243, 100%, 62%);
+}
+main .second-step .third-step-wrapper input[type=checkbox]:checked::before {
+  transform: scale(1.5);
+}
+main .second-step .text-wrapper {
+  margin-left: 1rem;
+}
+main .second-step .text-wrapper h2 {
+  font-size: 1em;
+  color: hsl(213, 96%, 18%);
+}
+main .second-step .text-wrapper p {
+  font-size: 0.8em;
+  color: hsl(231, 11%, 63%);
+}
+main .second-step p {
+  font-size: 0.8em;
+  color: hsl(243, 100%, 62%);
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  background: hsl(0, 0%, 100%);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+}
+footer button {
+  margin-right: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: hsl(213, 96%, 18%);
+  border: none;
+  border-radius: 5px;
+  color: hsl(0, 0%, 100%);
+  font-family: "ubuntu-regular";
+}/*# sourceMappingURL=App.css.map */

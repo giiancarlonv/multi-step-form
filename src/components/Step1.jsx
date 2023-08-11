@@ -1,32 +1,49 @@
 import React from 'react'
-import { Navbar, Footer, BGImage } from './NavFooter';
-export const FirstStep = () => {
+import { useState } from 'react';
+
+let tangina = []
+export const FirstStep =()=>{
+  const [formData, setFromData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  })
+  const handleChange = (event) =>{
+    const {name, value} = event.target;
+    setFromData((prevFormData) =>({...prevFormData, [name]:value}))
+  }
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    tangina.push(formData)
+    console.log(tangina);
+   
+  }
   return (
     <>
-      <BGImage />
-      <main>
-        <Navbar />
+      <form onSubmit={handleSubmit}>
         <section>
           <div className='header'>
             <h1>Personal info</h1>
             <p>Please provide your name, email address, and phone number.</p>
           </div>
-          
+
           <div className='container'>
             <label htmlFor="name">Name</label>
-            <input type="text"name='name' placeholder='e.g Stephen King'/>
+            <input type="text" name='name' placeholder='e.g Stephen King' id='name' value={formData.name} onChange={handleChange} required/>
           </div>
           <div className='container'>
             <label htmlFor="email">Email Address</label>
-            <input type="text"name='email' placeholder='e.g stephenking@lorem.com'/>
+            <input type="email"name='email' placeholder='e.g stephenking@lorem.com' id='email' value={formData.email} onChange={handleChange} required />
           </div>
           <div className='container'>
             <label htmlFor="phone">Phone Number</label>
-            <input type="text"name='phone' placeholder='e.g +1 234 567 890'/>
-          </div>
-        </section>
-      </main>
-      <Footer />
+            <input type="text"name='phone' placeholder='e.g +1 234 567 890' id='phone' value={formData.phone} onChange={handleChange} required/>
+          </div>   
+        </section>   
+        <div className='next-button'>
+          <button type='submit'>Next Step</button>
+        </div>
+      </form>
     </>
-  )
+  );  
 }

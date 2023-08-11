@@ -32,210 +32,287 @@ body{
 .bg-image{
   position: absolute;
   z-index: -1;
+  width: 100%;
 }
-main{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  nav{
-    margin: 2rem 0;
+nav{
+  background: transparent;
+  .mobile-nav{
     display: flex;
-    .text{
-      display: none;
-    }
-    .number{
-      padding: .5rem .8rem;
-      margin: 0 .5rem;
+    justify-content: center;
+    padding: 2rem;
+    li{
+      list-style: none;
+      margin: 0 .6rem;
+      padding: .3rem .6rem;
+      border-radius: 20px;
       border: 1px solid $white;
-      border-radius: 2rem;
       color: $white;
+      font-size: .9em;
     }
-    .number.active{
+    li.active{
       background: $light-blue;
       color: $marine-blue;
       border: none;
     }
   }
-  section{
-    background: $white;
-    border-radius: .5rem;
-    margin: 0 1rem;
-    padding: 2rem 1.5rem;
-    box-shadow: 0 1rem 2rem -20px $cool-gray;
-    .header{
-      h1{
-        font-size: 1.8em;
-        color: $marine-blue;
-      }
-      p{
-        font-size: 1.2em;
-        margin: 1rem 0;
-        color: $cool-gray;
+}
+section{
+  background: $white;
+  margin: .5rem 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 5px 15px -10px $cool-gray;
+  border-radius: 10px;
+  .header{
+    h1{
+      color: $marine-blue;
+      font-family: 'Ubuntu-Medium';
+    }
+    p{
+      margin: .5rem .5rem 0 0;
+      color: $cool-gray;
+    }
+  }
+  /* STEP 1 */
+  .container{
+    margin: 1rem 0 2rem 0;
+    display: grid;
+    grid-template-rows: 1rem 1rem;
+    label{
+      font-size: .7em;
+      font-family: 'Ubuntu-Medium';
+      color: $marine-blue;
+    }
+    input{
+      padding: 1rem .5rem;
+      font-size: .8em;
+      font-family: 'Ubuntu-Medium';
+    }
+  }
+  /* STEP 2 */
+  .plan-container{
+    margin: 1.8rem 0;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 10px;
+    .plan-wrapper{
+      display: flex;
+      background: transparent;
+      align-items: center;
+      border: 1px solid $light-gray;
+      border-radius: 5px;
+      text-align: left;
+      padding: 1rem;
+      .plan-text{
+        margin-left: 1rem;
+        h2{
+          font-size: 1em;
+          color: $marine-blue;
+        }
+        p{
+          color: $cool-gray;
+          font-size: .8em;
+          margin: 2px 0;
+        }
       }
     }
-    .container{
-      display: grid;
-      row-gap: .3rem;
-      margin: 1rem 0 ;
-      label{
+    .plan-duration{
+      background: $magnolia;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 70%;
+      margin-top: 1rem;
+      border-radius: 10px;
+      h3{
+        font-size: .9em;
+        text-transform: capitalize;
         color: $marine-blue;
-        font-size: .8em;
-        font-weight: 500;
       }
-      input{
-        padding: .5rem 1rem;
-        border: 1px solid $cool-gray;
-        border-radius: 2px;
+      .toggle{
+        background: $marine-blue;
+        position: relative;
+        display: block;
+        width: 2rem;
+        height: 1.1rem;
+        border-radius: 30px;
+        border: none;
+      }
+      .toggle:after{
+        content: '';
+        position: absolute;
+        width: .8rem;
+        height: .8rem;
+        border-radius: 50%;
+        background: $white;
+        top: 2px;
+        left: 3px;
+        transition: .3s ease;
+      }
+      .checkbox:checked + .toggle::after{
+        left: 1rem;
+      }
+      .checkbox:checked + .toggle{
+        background: $marine-blue;
+      }
+      .checkbox{
+        position: absolute;
+        visibility: hidden;
       }
     }
   }
-  .second-step{
-    display: flex;
-    flex-direction: column;
-    .header{
-      h1{
-        font-size: 1.5em;
-      }
-      p{
-        font-size: 1em;
-      }
+  /* STEP 3 */
+  .addons-container{
+    display: grid;
+    grid-template-columns: .5fr 2fr .5fr;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid $cool-gray;
+    border-radius: 5px;
+    input{
+      margin-right: .5rem;
     }
-    .plan-wrapper{
-      display: grid;
-      grid-template-columns: 1fr 4fr .5fr;
-      align-items: center;
-      text-align: left;
-      padding: 1.2rem 1rem;
-      margin: .5rem 0;
-      background: transparent;
-      border: 1px solid $cool-gray;
-      border-radius: 8px;
-      h2{
-        color: $marine-blue;
-        font-size: 1.3em;
-      }
-      p{
-        color: $cool-gray;
-      }
-      
-    }
-    .plan-duration{
-      margin: 1rem 0;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background: $magnolia;
-      padding: 1rem 0;
-      color: $marine-blue;
-      text-transform: capitalize;
-      .toggle-switch{
-        display: inline-flex;
-        align-items: center;
-        
-        input[type=checkbox]{
-          height: 0;
-          width: 0;
-          visibility: hidden;
-        }
-        label{
-          cursor: pointer;
-          width: 2.3rem;
-          height: 1.3rem;
-          background: $marine-blue;
-          display: block;
-          border-radius: 1rem;
-          position: relative;
-        }
-        label:after{
-          content: '';
-          position: absolute;
-          top: 2px;
-          left: 1px;
-          width: 1rem;
-          height: 1rem;
-          background: #fff;
-          border-radius: 90px;
-          transition: .4s;
-        }
-        input:checked + label{
-          background: $marine-blue;
-        }
-        input:checked + label:after{
-          left: calc(100% - 1px);
-          transform: translateX(-100%);
-        }
-        label:active:after{
-          width: 1rem;
-        }
-      }
-    }
-
-    .third-step-wrapper{
-      display: grid;
-      grid-template-columns: .3fr 3fr .3fr;
-      align-items: center;
-      padding: 1rem;
-      border: 1px solid $light-gray;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      input[type='checkbox']{
-        appearance: none;
-        background: transparent;
-        margin: 0;
-        font: inherit;
-        width: 1.5rem;
-        height: 1.5rem;
-        border: 1px solid $cool-gray;
-        border-radius: 2px;
-        transform: translateY(-0.075em);
-        display: grid;
-        place-content: center;
-      }
-      input[type='checkbox']::before{
-        content: "";
-        width: 1rem;
-        height: 1rem;
-        transform: scale(0);
-        transition: .12s transform ease-in-out;
-        box-shadow: inset 1em 1em $purplish-blue;
-      }
-      input[type="checkbox"]:checked::before {
-          transform: scale(1.5);
-      }
+    input.checkbox{
+      width: 1.3rem;
+      height: 1.3rem;
     }
     .text-wrapper{
-      margin-left: 1rem;
       h2{
-        font-size: 1em;
+        font-size: .8em;
+        margin-bottom: 2px;
         color: $marine-blue;
       }
       p{
-        font-size: .8em;
+        font-size: .7em;
         color: $cool-gray;
+       
       }
     }
-    p{
+    .price{
+      margin-left: 1rem;
       font-size: .8em;
+      font-weight: 500;
       color: $purplish-blue;
     }
   }
+  /* STEP 4 */
+  .subcription-container{
+    background: $magnolia;
+    margin: 2rem 0 1.5rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    .subs-header{
+      border-bottom: 1px solid $cool-gray;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .text{
+        margin-bottom: 1rem;
+        h2{
+          font-size: 1em;
+          color: $marine-blue;
+        }
+        a{
+          text-transform: capitalize;
+          color: $cool-gray;
+        }
+      }
+      p{
+        color: $marine-blue;
+        font-weight: 700;
+      }
+    }
+    .subs-detail{
+      color: $cool-gray;
+      .text{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        h3{
+          font-size: .8em;
+        }
+        p{
+          color:$marine-blue;
+        }
+      }
+    }
+  }
+  .total-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem;
+    h3{
+      font-size: .9em;
+      color: $cool-gray;
+    }
+    p{
+      color: $purplish-blue;
+      font-weight: 700;
+    }
+  }
+  /* FINISH */
+  .finish-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    img{
+      width: 15%;
+      margin-bottom: 1rem;
+    }
+    h1{
+      font-size: 1.3em;
+      margin-bottom: .5rem;
+      color: $marine-blue;
+      font-family: 'Ubuntu-Medium';
+    }
+    p{
+      line-height: 1.5rem;
+      color: $cool-gray;
+    }
+  }
 }
-footer{
+.next-button{
   position: absolute;
-  width: 100%;
-  bottom: 10px;
   background: $white;
-  padding: 1rem 0;
+  width: 100%;
+  height: 10%;
+  bottom: .1px;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  box-shadow: 0 -5px 20px -15px $cool-gray;
   button{
+    padding: .7rem 1rem;
     margin-right: 1rem;
-    padding: .8rem 1.5rem;
     background: $marine-blue;
-    border: none;
-    border-radius: 5px;
     color: $white;
-    font-family: 'ubuntu-regular';
+    font-family: 'Ubuntu-Regular';
+    border: none;
+    border-radius: 3px;
+  }
+}
+.next-button.back{
+  justify-content: space-between;
+  .back{
+    margin: 0 1rem;
+    background: none;
+    color: $cool-gray;
+  }
+}
+.next-button.done{
+  justify-content: space-between;
+  button{
+    background: $purplish-blue;
+    text-transform: capitalize;
+    padding: .7rem 1.3rem;
+  }
+  .back{
+    margin:  1rem 0;
+    background: none;
+    color: $cool-gray;
   }
 }

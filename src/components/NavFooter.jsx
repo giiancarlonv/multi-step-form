@@ -1,58 +1,26 @@
 import React from 'react'
 import mobileBG from '../images/bg-sidebar-mobile.svg';
+import desktopBG from '../images/bg-sidebar-desktop.svg';
 
 export const Navbar = () => {
   return (
     <>
-      <nav>
-        <div className='label-contaner'>
-          <div className='number active'>
-            1
-          </div>
-          <div className='text'>
-            <label htmlFor="step 1">Step 1</label>
-            <h1>Your info</h1>
-          </div>
-        </div>
-        <div className='label-contaner'>
-          <div className='number'>
-            2
-          </div>
-          <div className='text'>
-            <label htmlFor="step 1">Step 2</label>
-            <h1>Select plan</h1>
-          </div>
-        </div>
-        <div className='label-contaner'>
-          <div className='number'>3</div>
-          <div className='text'>
-            <label htmlFor="step 1">Step 3</label>
-            <h1>Add-ons</h1>
-          </div>
-        </div>
-        <div className='label-contaner'>
-          <div className='number'>4</div>
-          <div className='text'>
-            <label htmlFor="step 1">Step 4</label>
-            <h1>Summary</h1>
-          </div>
-        </div>
-      </nav>
-    </>
-  )
-}
-
-export const Footer =()=>{
-  return(
-    <>
-      <footer>
-        <button>Next Step</button>
-      </footer>
+      <header>
+        <nav>
+          <ul className='mobile-nav'>
+            <li className='active'>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+          </ul>
+        </nav>
+      </header>
     </>
   )
 }
 export const BGImage =()=>{
+  const screenWidth = window.innerWidth;
   return(
-    <img src={mobileBG} alt="mobile-bg" className='bg-image' />
+    <img src={screenWidth >= 1280 ? desktopBG : mobileBG} alt="mobile-bg" className='bg-image' />
   )
 }

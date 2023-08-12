@@ -49,6 +49,10 @@ nav .mobile-nav li.active {
   border: none;
 }
 
+.desktop-nav {
+  display: none;
+}
+
 section {
   background: hsl(0, 0%, 100%);
   margin: 0.5rem 1rem;
@@ -87,7 +91,7 @@ section .container input {
 section .plan-container {
   margin: 1.8rem 0;
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   row-gap: 10px;
 }
 section .plan-container .plan-wrapper {
@@ -111,21 +115,21 @@ section .plan-container .plan-wrapper .plan-text p {
   font-size: 0.8em;
   margin: 2px 0;
 }
-section .plan-container .plan-duration {
+section .plan-duration {
   background: hsl(217, 100%, 97%);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 70%;
+  padding: 1rem 0;
   margin-top: 1rem;
   border-radius: 10px;
 }
-section .plan-container .plan-duration h3 {
+section .plan-duration h3 {
   font-size: 0.9em;
   text-transform: capitalize;
   color: hsl(213, 96%, 18%);
 }
-section .plan-container .plan-duration .toggle {
+section .plan-duration .toggle {
   background: hsl(213, 96%, 18%);
   position: relative;
   display: block;
@@ -134,7 +138,7 @@ section .plan-container .plan-duration .toggle {
   border-radius: 30px;
   border: none;
 }
-section .plan-container .plan-duration .toggle:after {
+section .plan-duration .toggle:after {
   content: "";
   position: absolute;
   width: 0.8rem;
@@ -145,13 +149,13 @@ section .plan-container .plan-duration .toggle:after {
   left: 3px;
   transition: 0.3s ease;
 }
-section .plan-container .plan-duration .checkbox:checked + .toggle::after {
+section .plan-duration .checkbox:checked + .toggle::after {
   left: 1rem;
 }
-section .plan-container .plan-duration .checkbox:checked + .toggle {
+section .plan-duration .checkbox:checked + .toggle {
   background: hsl(213, 96%, 18%);
 }
-section .plan-container .plan-duration .checkbox {
+section .plan-duration .checkbox {
   position: absolute;
   visibility: hidden;
 }
@@ -165,7 +169,7 @@ section .addons-container {
   border-radius: 5px;
 }
 section .addons-container input {
-  margin-right: 0.5rem;
+  margin-right: 0.1rem;
 }
 section .addons-container input.checkbox {
   width: 1.3rem;
@@ -285,25 +289,255 @@ section .finish-container p {
   border-radius: 3px;
 }
 
-.next-button.back {
+.next-button.back, .next-button.done {
   justify-content: space-between;
 }
-.next-button.back .back {
+.next-button.back .back, .next-button.done .back {
   margin: 0 1rem;
   background: none;
   color: hsl(231, 11%, 63%);
 }
 
-.next-button.done {
-  justify-content: space-between;
-}
 .next-button.done button {
   background: hsl(243, 100%, 62%);
   text-transform: capitalize;
   padding: 0.7rem 1.3rem;
 }
-.next-button.done .back {
-  margin: 1rem 0;
-  background: none;
-  color: hsl(231, 11%, 63%);
+
+@media (min-width: 1280px) {
+  body {
+    background: hsl(0, 0%, 100%);
+  }
+  .bg-image {
+    margin-top: 1rem;
+    right: 34%;
+    height: 96%;
+    z-index: -2;
+  }
+  main {
+    display: grid;
+    grid-template-columns: 1.3fr 3fr;
+  }
+  main .mobile-nav {
+    display: none;
+  }
+  main .desktop-nav {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 4rem;
+    width: 100%;
+  }
+  main .desktop-nav .desktop-group {
+    display: grid;
+    grid-template-columns: 0.5fr 5fr;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+  main .desktop-nav .desktop-group .desktop-number {
+    padding: 0.6rem 0.9rem;
+    border-radius: 20px;
+    border: 1px solid hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 100%);
+    font-size: 1em;
+  }
+  main .desktop-nav .desktop-group .desktop-label {
+    text-transform: uppercase;
+  }
+  main .desktop-nav .desktop-group .desktop-label h5 {
+    font-weight: 400;
+    color: hsl(229, 24%, 87%);
+  }
+  main .desktop-nav .desktop-group .desktop-label h4 {
+    color: hsl(0, 0%, 100%);
+    letter-spacing: 0.2rem;
+  }
+  section {
+    padding: 4.5rem 8rem;
+    background: none;
+    box-shadow: none;
+    /*STEP 1*/
+    /*STEP 2*/
+    /*STEP 3*/
+    /*STEP 4*/
+    /*FINISH*/
+  }
+  section .header h1 {
+    font-size: 2.5em;
+  }
+  section .header p {
+    padding: 0;
+    font-size: 1.3em;
+    margin-bottom: 3rem;
+  }
+  section .container {
+    row-gap: 1rem;
+    grid-template-rows: repeat(3, 1rem);
+    width: 80%;
+  }
+  section .container label {
+    font-size: 1em;
+  }
+  section .container input {
+    padding: 1.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid hsl(231, 11%, 63%);
+  }
+  section .plan-container {
+    grid-template-columns: repeat(3, 1fr);
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
+    height: 25vh;
+  }
+  section .plan-container .plan-wrapper {
+    padding: 2rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  section .plan-container .plan-wrapper img {
+    width: 30%;
+  }
+  section .plan-container .plan-wrapper .plan-text {
+    margin: 2rem 0 0 0;
+  }
+  section .plan-container .plan-wrapper .plan-text h2 {
+    font-size: 1.5em;
+  }
+  section .plan-container .plan-wrapper .plan-text p {
+    font-size: 1.3em;
+  }
+  section .plan-container .plan-wrapper:hover {
+    box-shadow: 0 0 0 1px hsl(243, 100%, 62%);
+    transition: 0.2s;
+  }
+  section .plan-duration {
+    margin: 0;
+    font-size: 1.5em;
+    justify-content: space-evenly;
+    padding: 1rem 10rem;
+  }
+  section .plan-duration .toggle {
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 30px;
+    border: none;
+  }
+  section .plan-duration .toggle:after {
+    width: 1rem;
+    height: 1cap;
+    border-radius: 50%;
+    background: hsl(0, 0%, 100%);
+    top: 3px;
+  }
+  section .plan-duration .checkbox:checked + .toggle::after {
+    left: 1.7rem;
+  }
+  section .addons-container {
+    grid-template-columns: 0.5fr 5fr 0.8fr;
+    transition: 0.3s ease-in-out;
+    padding: 0.5rem 2rem;
+  }
+  section .addons-container .text-wrapper {
+    margin: 0.5rem;
+  }
+  section .addons-container .text-wrapper h2 {
+    font-size: 1.3em;
+  }
+  section .addons-container .text-wrapper p {
+    font-size: 1.3em;
+  }
+  section .addons-container .price {
+    font-size: 1em;
+    font-weight: 700;
+  }
+  section .addons-container:hover {
+    box-shadow: 0 0 1px hsl(243, 100%, 62%);
+    cursor: pointer;
+  }
+  section .subcription-container {
+    padding: 1.5rem;
+  }
+  section .subcription-container .subs-header {
+    padding-bottom: 1rem;
+  }
+  section .subcription-container .subs-header .text h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
+  }
+  section .subcription-container .subs-header .text a {
+    font-size: 1.3em;
+    transform: 0.3s ease;
+  }
+  section .subcription-container .subs-header .text a:hover {
+    font-size: 1.3em;
+    color: hsl(243, 100%, 62%);
+  }
+  section .subcription-container .subs-header p {
+    font-size: 1.5em;
+  }
+  section .subcription-container .subs-detail {
+    margin: 2rem 0 0 0;
+  }
+  section .subcription-container .subs-detail .text {
+    font-size: 1.5em;
+  }
+  section .subcription-container .subs-detail .text p {
+    color: hsl(213, 96%, 18%);
+  }
+  section .total-wrapper {
+    margin: 2rem 1.5rem;
+    font-size: 1.5em;
+  }
+  section .finish-container {
+    height: 100%;
+    padding: 0 5rem;
+    align-items: flex-start;
+  }
+  section .finish-container img {
+    visibility: hidden;
+    width: 20%;
+  }
+  section .finish-container h1, section .finish-container p {
+    text-align: left;
+  }
+  section .finish-container h1 {
+    margin: 2rem 0;
+    font-size: 5em;
+  }
+  section .finish-container p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+  .next-button {
+    position: absolute;
+    left: 1px;
+    bottom: 5%;
+    box-shadow: none;
+    background: transparent;
+  }
+  .next-button button {
+    padding: 1rem 2.5rem;
+    margin-right: 10rem;
+    font-size: 1em;
+    border-radius: 8px;
+    transition: 0.3s ease;
+  }
+  .next-button button:hover {
+    cursor: pointer;
+    background: hsl(206, 94%, 87%);
+  }
+  .next-button.back, .next-button.done {
+    background: transparent;
+  }
+  .next-button.back .back, .next-button.done .back {
+    margin-left: 35rem;
+    font-size: 1em;
+    font-weight: 700;
+    background: none;
+    color: hsl(231, 11%, 63%);
+  }
+  .next-button.back .back:hover, .next-button.done .back:hover {
+    color: hsl(213, 96%, 18%);
+  }
 }/*# sourceMappingURL=App.css.map */

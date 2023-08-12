@@ -12,6 +12,9 @@ export const SecondStep = () => {
             <h1>Select your plan</h1>
             <p>You have the option of monthly or yearly billing.</p>
           </div>
+          <div>
+
+          </div>
           <div className='plan-container'>
             <button className='plan-wrapper'>
               <img src={arcade} alt="arcade image" />
@@ -34,11 +37,11 @@ export const SecondStep = () => {
                 <p>$15/mo</p>
               </div>
             </button>
-            <div className='plan-duration'>
-              <h3>Monthly</h3>
-              <ToggleSwitch />
-              <h3>yearly</h3>
-            </div>
+          </div>
+          <div className='plan-duration'>
+            <h3>Monthly</h3>
+            <ToggleSwitch />
+            <h3>yearly</h3>
           </div>
         </section>
         <div className='next-button back'>

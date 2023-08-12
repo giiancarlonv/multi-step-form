@@ -56,6 +56,9 @@ nav{
     }
   }
 }
+.desktop-nav{
+  display: none;
+}
 section{
   background: $white;
   margin: .5rem 1rem;
@@ -92,7 +95,7 @@ section{
   .plan-container{
     margin: 1.8rem 0;
     display: grid;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     row-gap: 10px;
     .plan-wrapper{
       display: flex;
@@ -115,49 +118,49 @@ section{
         }
       }
     }
-    .plan-duration{
-      background: $magnolia;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 70%;
-      margin-top: 1rem;
-      border-radius: 10px;
-      h3{
-        font-size: .9em;
-        text-transform: capitalize;
-        color: $marine-blue;
-      }
-      .toggle{
-        background: $marine-blue;
-        position: relative;
-        display: block;
-        width: 2rem;
-        height: 1.1rem;
-        border-radius: 30px;
-        border: none;
-      }
-      .toggle:after{
-        content: '';
-        position: absolute;
-        width: .8rem;
-        height: .8rem;
-        border-radius: 50%;
-        background: $white;
-        top: 2px;
-        left: 3px;
-        transition: .3s ease;
-      }
-      .checkbox:checked + .toggle::after{
-        left: 1rem;
-      }
-      .checkbox:checked + .toggle{
-        background: $marine-blue;
-      }
-      .checkbox{
-        position: absolute;
-        visibility: hidden;
-      }
+  }
+  .plan-duration{
+    background: $magnolia;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    border-radius: 10px;
+    h3{
+      font-size: .9em;
+      text-transform: capitalize;
+      color: $marine-blue;
+    }
+    .toggle{
+      background: $marine-blue;
+      position: relative;
+      display: block;
+      width: 2rem;
+      height: 1.1rem;
+      border-radius: 30px;
+      border: none;
+    }
+    .toggle:after{
+      content: '';
+      position: absolute;
+      width: .8rem;
+      height: .8rem;
+      border-radius: 50%;
+      background: $white;
+      top: 2px;
+      left: 3px;
+      transition: .3s ease;
+    }
+    .checkbox:checked + .toggle::after{
+      left: 1rem;
+    }
+    .checkbox:checked + .toggle{
+      background: $marine-blue;
+    }
+    .checkbox{
+      position: absolute;
+      visibility: hidden;
     }
   }
   /* STEP 3 */
@@ -170,7 +173,7 @@ section{
     border: 1px solid $cool-gray;
     border-radius: 5px;
     input{
-      margin-right: .5rem;
+      margin-right: .1rem;
     }
     input.checkbox{
       width: 1.3rem;
@@ -295,7 +298,7 @@ section{
     border-radius: 3px;
   }
 }
-.next-button.back{
+.next-button.back, .next-button.done{
   justify-content: space-between;
   .back{
     margin: 0 1rem;
@@ -304,15 +307,252 @@ section{
   }
 }
 .next-button.done{
-  justify-content: space-between;
   button{
     background: $purplish-blue;
     text-transform: capitalize;
     padding: .7rem 1.3rem;
   }
-  .back{
-    margin:  1rem 0;
+}
+@media (min-width: 1280px) {
+  body{
+    background: $white;
+  }
+  .bg-image{
+    margin-top: 1rem;
+    right: 34%;
+    height: 96%;
+    z-index: -2;
+  }
+  main{
+    display: grid;
+    grid-template-columns: 1.3fr 3fr;
+    .mobile-nav{
+      display: none;
+    }
+    .desktop-nav{
+      display: flex;
+      flex-direction: column;
+      margin: 5rem 4rem;
+      width: 100%;
+      .desktop-group{
+        display: grid;
+        grid-template-columns: .5fr 5fr;
+        column-gap: 20px;
+        align-items: center;
+        margin-bottom: 2.5rem;
+       
+        .desktop-number{
+          padding: .6rem .9rem;
+          border-radius: 20px;
+          border: 1px solid $white;
+          color: $white;
+          font-size: 1em;
+        }
+        .desktop-label{
+          text-transform: uppercase;
+          h5{
+            font-weight: 400;
+            color: $light-gray;
+            
+          }
+          h4{
+            color: $white;
+            letter-spacing: .2rem;
+          }
+        }
+      }
+    }
+  }
+  section{
+    padding: 4.5rem 8rem;
     background: none;
-    color: $cool-gray;
+    box-shadow: none;
+    .header{
+      h1{
+        font-size: 2.5em;
+      }
+      p{
+        padding: 0;
+        font-size: 1.3em;
+        margin-bottom: 3rem;
+      }
+    }
+    /*STEP 1*/
+    .container{
+      row-gap: 1rem;
+      grid-template-rows: repeat(3, 1rem);
+      width: 80%;
+      
+      label{
+        font-size: 1em;
+      }
+      input{
+        padding: 1.5rem 1rem;
+        border-radius: 5px;
+        border: 1px solid $cool-gray;
+      }
+    }
+    /*STEP 2*/
+    .plan-container{
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1.5rem;
+      height: 25vh;
+      .plan-wrapper{
+        padding: 2rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        img{
+          width: 30%;
+        }
+        .plan-text{
+          margin: 2rem 0 0 0;
+          h2{
+            font-size: 1.5em;
+          }
+          p{
+            font-size: 1.3em;
+          }
+        }
+      }
+      .plan-wrapper:hover{
+        box-shadow: 0 0 0 1px $purplish-blue;
+        transition: .2s;
+      }
+    }
+    .plan-duration{
+      margin: 0;
+      font-size: 1.5em;
+      justify-content: space-evenly; 
+      padding: 1rem 10rem;
+      .toggle{
+        width: 3rem;
+        height: 1.5rem;
+        border-radius: 30px;
+        border: none;
+      }
+      .toggle:after{
+        width: 1rem;
+        height: 1cap;
+        border-radius: 50%;
+        background: $white;
+        top: 3px;
+      }
+      .checkbox:checked + .toggle::after{
+        left: 1.7rem;
+      }
+    }
+    /*STEP 3*/
+    .addons-container{
+      grid-template-columns: .5fr 5fr .8fr;
+      transition: .3s ease-in-out;
+      padding: .5rem 2rem;
+      .text-wrapper{
+        margin: .5rem;
+        h2{
+          font-size: 1.3em;
+        }
+        p{
+          font-size: 1.3em;
+        }
+      }
+      .price{
+        font-size: 1em;
+        font-weight: 700;
+      }
+    }
+    .addons-container:hover{
+      box-shadow: 0 0 1px $purplish-blue;
+      cursor: pointer;
+    }
+      /*STEP 4*/
+    .subcription-container{
+      padding: 1.5rem;
+      .subs-header{
+        padding-bottom: 1rem;
+        .text{
+          h2{
+            font-size: 1.5em;
+            margin-bottom: .5rem;
+          }
+          a{
+            font-size: 1.3em;
+            transform: .3s ease;
+          }
+          a:hover{
+            font-size: 1.3em;
+            color: $purplish-blue;
+          }
+        }
+        p{
+          font-size: 1.5em;
+        }
+      }
+      .subs-detail{
+        margin: 2rem 0 0 0;
+        .text{
+          font-size: 1.5em;
+          p{
+            color: $marine-blue;
+          }
+        }
+      }
+    }
+    .total-wrapper{
+      margin: 2rem 1.5rem;
+      font-size: 1.5em;
+    }
+    /*FINISH*/
+    .finish-container{
+      height: 100%;
+      padding: 0 5rem; 
+      align-items: flex-start;
+
+      img{
+        visibility: hidden;
+        width: 20%;
+      }
+      h1,p{
+        text-align: left;
+      }
+      h1{
+        margin: 2rem 0;
+        font-size: 5em;
+      }
+      p{
+        font-size: 1.5em;
+        line-height: 1.5em;
+      }
+    }
+  }
+  .next-button{
+    position: absolute;
+    left: 1px;
+    bottom: 5%;
+    box-shadow: none;
+    background: transparent;
+    button{
+      padding: 1rem 2.5rem;
+      margin-right: 10rem;
+      font-size: 1em;
+      border-radius: 8px;
+      transition: .3s ease;
+    }
+    button:hover{
+      cursor: pointer;
+      background: $light-blue;
+    }
+  }
+  .next-button.back, .next-button.done{
+    background: transparent;
+    .back{
+      margin-left: 35rem;
+      font-size: 1em;
+      font-weight: 700;
+      background: none;
+      color: $cool-gray;
+    }
+    .back:hover{
+      color: $marine-blue;
+    }
   }
 }

@@ -22,7 +22,6 @@ export const FirstStep =()=>{
   }
   return (
     <>
-    <Outlet />
     <form onSubmit={handleSubmit}>
       <section>
         <div className='header'>

@@ -14,12 +14,8 @@ function App() {
   return (
     <>
     <BGImage />
-    <header>
-      <Navbar />
-    </header>
     <main>
-      <Outlet />
-    </main>
+      <Navbar />
       <BrowserRouter>
         <Routes>
           <Route path='/multi-step-form' exact element={<FirstStep />}/>
@@ -29,6 +25,8 @@ function App() {
                   <Route path='/finish' exact element={<Finish />}/>
         </Routes>
       </BrowserRouter>
+    </main>
+      
     </>
   )
 }

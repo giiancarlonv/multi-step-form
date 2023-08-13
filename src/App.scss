@@ -118,6 +118,10 @@ section{
         }
       }
     }
+    .plan-wrapper.clicked{
+      box-shadow: 0 0 0 1px $purplish-blue;
+      background: $magnolia;
+    }
   }
   .plan-duration{
     background: $magnolia;
@@ -296,6 +300,10 @@ section{
     font-family: 'Ubuntu-Regular';
     border: none;
     border-radius: 3px;
+    a{
+      text-decoration: none;
+      color: $white;
+    }
   }
 }
 .next-button.back, .next-button.done{

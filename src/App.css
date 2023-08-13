@@ -115,6 +115,10 @@ section .plan-container .plan-wrapper .plan-text p {
   font-size: 0.8em;
   margin: 2px 0;
 }
+section .plan-container .plan-wrapper.clicked {
+  box-shadow: 0 0 0 1px hsl(243, 100%, 62%);
+  background: hsl(217, 100%, 97%);
+}
 section .plan-duration {
   background: hsl(217, 100%, 97%);
   display: flex;
@@ -287,6 +291,10 @@ section .finish-container p {
   font-family: "Ubuntu-Regular";
   border: none;
   border-radius: 3px;
+}
+.next-button button a {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
 }
 
 .next-button.back, .next-button.done {
